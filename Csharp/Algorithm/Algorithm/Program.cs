@@ -3,9 +3,11 @@
 class Program
 {
     private const int _WAIT_TIME = 1000 / 30;
+    private const char _CIRCLE = '\u25cf';
     
     static void Main(string[] args)
     {
+        Console.CursorVisible = false;
         
         int lastTick = 0;
         
@@ -24,6 +26,24 @@ class Program
             lastTick = currentTick;
 
             #endregion
+            
+            // 입력
+            
+            // 로직
+            
+            // 렌더링
+            Console.SetCursorPosition(0, 0);
+            
+            for(int y = 0; y < 25; y++)
+            {
+                for(int x = 0; x < 25; x++)
+                {
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.Write(_CIRCLE);
+                }
+                
+                Console.WriteLine();
+            }
         }
     }
 }
