@@ -27,6 +27,27 @@ public class MyList<T>
         Count++;
     }
 
+    // 시간 복잡도: O(N)
+    public bool Contains(T? item)
+    {
+        // 추가 된 데이터가 없다면 false
+        if(Count == 0) return false;
+        
+        // 찾으려는 대상이 Null인 경우 false
+        if(item == null) return false;
+
+        // 배열을 돌며 일치하는 데이터가 있는 경우 true 리턴
+        for (int i = 0; i < Count; i++)
+        {
+            if(item.Equals(_data[i]))
+            {
+                return true;
+            }
+        }
+
+        // 없는 경우 false 리턴
+        return false;
+    }
     
     // 시간 복잡도: O(N)
     public void RemoveAt(int index)
