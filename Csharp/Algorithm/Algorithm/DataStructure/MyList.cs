@@ -48,6 +48,22 @@ public class MyList<T>
         // 없는 경우 false 리턴
         return false;
     }
+
+    // 시간 복잡도: O(N)
+    public void Remove(T? item)
+    {
+        if(Count == 0) return;
+        if(item == null) return;
+
+        for (int i = 0; i < Count; i++)
+        {
+            if(item.Equals(_data[i]))
+            {
+                RemoveAt(i);
+                return;
+            }
+        }
+    }
     
     // 시간 복잡도: O(N)
     public void RemoveAt(int index)
