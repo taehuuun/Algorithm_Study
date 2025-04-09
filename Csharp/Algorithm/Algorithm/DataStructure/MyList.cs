@@ -9,6 +9,7 @@ public class MyList<T>
     
     private const int _DEFAULT_SIZE = 1;
 
+    // 시간 복잡도: O(1) 
     public void Add(T? item)
     {
         // 여유 공간이 있는지 확인
@@ -26,6 +27,8 @@ public class MyList<T>
         Count++;
     }
 
+    
+    // 시간 복잡도: O(N)
     public void RemoveAt(int index)
     {
         for (int i = index; i < Count - 1; i++)
@@ -37,6 +40,7 @@ public class MyList<T>
         _data[Count] = default;
     }
 
+    // 시간 복잡도: O(1)
     public T? this[int index]
     {
         get => _data[index];
