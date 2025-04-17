@@ -10,12 +10,15 @@ public enum Tile
 public class Board
 {
     public Tile[,]? Tiles { get; private set; }
+    
+    private Player _player;
     private int _size;
     
     private const char _CIRCLE = '\u25cf';
     
-    public void Initialize(int size)
+    public void Initialize(Player player,int size)
     {
+        _player = player;
         _size = size;
         Tiles = new Tile[size, size];
 
@@ -30,7 +33,15 @@ public class Board
         {
             for(int x = 0; x < _size; x++)
             {
-                Console.ForegroundColor = GetTileColor(Tiles[y, x]);;
+                if (x == _player.X && y == _player.Y)
+                {
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                }
+                else
+                {
+                    Console.ForegroundColor = GetTileColor(Tiles[y, x]);;
+                }
+                
                 Console.Write(_CIRCLE);
             }
                 
